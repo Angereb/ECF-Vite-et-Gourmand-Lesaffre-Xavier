@@ -1,0 +1,4 @@
+CREATE TABLE statutsAvis(
+    statutsAvisId BIGINT PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(32) NOT NULL UNIQUE
+);

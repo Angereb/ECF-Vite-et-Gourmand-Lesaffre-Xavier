@@ -1,0 +1,4 @@
+CREATE TABLE materiels(
+    materielsId BIGINT PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(128) NOT NULL UNIQUE
+);

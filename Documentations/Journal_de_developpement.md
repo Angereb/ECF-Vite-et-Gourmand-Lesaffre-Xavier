@@ -43,3 +43,19 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Récupération de visuel libre de droit sur le site Unsplash
 
 ---
+
+## 12 et 13 Août 2026
+
+### Objectifs
+
+- Création de la base de donnée
+
+### Réalisations
+
+- Création de toutes les tables (20 tables)
+- Ajout dans le diagramme relationnel des tables oubliés (Allergènes et PlatsAllergènes)
+- Transfert des tables une par une dans phpMyAdmin et documentation des tables éxecuter dans Schema.sql
+- Création d'une batterie de test de la banque de donnée
+- Transfert des tests et prise de note du résultat en cas d'échec
+
+---

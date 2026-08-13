@@ -1,0 +1,4 @@
+CREATE TABLE allergenes(
+    allergenesId BIGINT PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(32) NOT NULL UNIQUE
+);

@@ -1,0 +1,7 @@
+CREATE TABLE utilisateurs(
+    utilisateursId BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(64) NOT NULL,
+    prenom VARCHAR(64) NOT NULL,
+    email VARCHAR(128) NOT NULL UNIQUE,
+    motDePasse VARCHAR(128) NOT NULL
+);
