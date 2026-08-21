@@ -55,8 +55,9 @@ CREATE TABLE menus(
     minimumConvive INT NOT NULL,
     stock INT NOT NULL,
     prix DECIMAL(10, 2) NOT NULL,
+    actif BOOLEAN NOT NULL DEFAULT TRUE,
     themesId BIGINT NOT NULL,
-    regimesid BIGINT NOT NULL,
+    regimesId BIGINT NOT NULL,
     FOREIGN KEY (themesId)
         REFERENCES themes(themesId),
     FOREIGN KEY (regimesId)
@@ -68,6 +69,7 @@ CREATE TABLE plats(
     titre VARCHAR(64) NOT NULL UNIQUE,
     categorie VARCHAR(32) NOT NULL,
     photo BLOB,
+    actif BOOLEAN DEFAULT TRUE,
     regimesId BIGINT NOT NULL,
     FOREIGN KEY (regimesId)
         REFERENCES regimes(regimesId)
@@ -77,6 +79,7 @@ CREATE TABLE clients(
     utilisateursId BIGINT PRIMARY KEY,
     numeroTelephone VARCHAR(16) NOT NULL,
     adressePostale TEXT NOT NULL,
+    actif BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (utilisateursId)
         REFERENCES utilisateurs(utilisateursId)
 );
@@ -101,8 +104,10 @@ CREATE TABLE images(
 CREATE TABLE commandes(
     commandesId BIGINT PRIMARY KEY AUTO_INCREMENT,
     adresse TEXT NOT NULL,
+    codePostal VARCHAR(5) NOT NULL,
     datePrestation DATE NOT NULL,
     heureLivraison TIME NOT NULL,
+    dateLivraison DATE NOT NULL,
     convive INT NOT NULL,
     facture DECIMAL(10, 2) NOT NULL,
     utilisateursId BIGINT NOT NULL,
@@ -173,8 +178,8 @@ CREATE TABLE commandesMateriels(
 CREATE TABLE historiquesStatutsCommandes(
     historiquesStatutsCommandesId BIGINT PRIMARY KEY AUTO_INCREMENT,
     dateModification DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    motif TEXT NOT NULL,
-    modeContact VARCHAR(32) NOT NULL,
+    motif TEXT,
+    modeContact VARCHAR(32),
     commandesId BIGINT NOT NULL,
     statutsCommandeId BIGINT NOT NULL,
     FOREIGN KEY (commandesId)

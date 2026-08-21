@@ -59,3 +59,22 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Transfert des tests et prise de note du résultat en cas d'échec
 
 ---
+
+## 14 au 21 Août 2026
+
+### Objectifs
+
+- Création des classes d'objets suivant tables SQL écrites
+- Création des classes de modèle CRUD
+
+### Réalisations
+
+- Création dans le dossier Modele du Site des dossiers correspondant au tables
+- Création du modèle de connection à la base de donnée
+- Création des classes d'objet pour toutes les tables principales
+- Modification du SQL tables et schéma pour ajouter un paramètre de soft DELETE sur certaines tables
+- Création des classes de Modèle pour toutes les tables (principales et liaisons)
+- Retrait de la notion de "NOT NULL" pour le motif et le modeContact dans l'historique des statuts de commandes
+- Création et lancement de divers tests pour vérification de certains CRUD
+
+---

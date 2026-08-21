@@ -6,8 +6,9 @@ CREATE TABLE menus(
     minimumConvive INT NOT NULL,
     stock INT NOT NULL,
     prix DECIMAL(10, 2) NOT NULL,
+    actif BOOLEAN NOT NULL DEFAULT TRUE,
     themesId BIGINT NOT NULL,
-    regimesid BIGINT NOT NULL,
+    regimesId BIGINT NOT NULL,
     FOREIGN KEY (themesId)
         REFERENCES themes(themesId),
     FOREIGN KEY (regimesId)
