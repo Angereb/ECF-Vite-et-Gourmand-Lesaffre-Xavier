@@ -1,0 +1,18 @@
+.entete{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .entete {
+        height: 75px;
+    }
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+}
