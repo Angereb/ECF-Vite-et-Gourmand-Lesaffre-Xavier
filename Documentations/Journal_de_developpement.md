@@ -78,3 +78,20 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Création et lancement de divers tests pour vérification de certains CRUD
 
 ---
+
+## 22 et 23 Août 2026
+
+### Objectifs
+
+- Développement dans une branche dédier des composants généraux du site (Logo, menu, pied de page)
+
+### Réalisations
+
+- Initialisation du routeur index vers la page d'accueil
+- Initialisation du contrôleur de la page d'accueil pour inclusion dans un calque principal
+- Création du calque principal et du style général associé au site
+- Création du header comprenant le logo du site
+- Création du menu responsive, avec adaptation entre version desktop (simple barre) et version mobile (menu burger)
+- Création du footer comprenant récupération des horaires et modales pour les mentions légales et le conditions générales de vente
+
+---

@@ -24,25 +24,21 @@ $horaires = $horaireModele->rechercherTous();
 <div class="modale" id="modale-mentions-cgv" aria-hidden="true">
     <div class="modale-contenu">
         <button type="button" class="fermer-modale" aria-label="Fermer">x</button>
-        <h2>Mentions légales</h2>
-        <p>...</p>
-        <h2>Conditions générales de vente</h2>
-        <p>...</p>
+        <?php require __DIR__ . "/ContenusModales/mentionsLegales.php" ?>
+        <?php require __DIR__ . "/ContenusModales/ConditionsGeneralesVentes.php" ?>
     </div>
 </div>
 
 <div class="modale" id="modale-mentions" aria-hidden="true">
     <div class="modale-contenu">
         <button type="button" class="fermer-modale" aria-label="Fermer">x</button>
-        <h2>Mentions légales</h2>
-        <p>...</p>
+        <?php require __DIR__ . "/ContenusModales/mentionsLegales.php" ?>
     </div>
 </div>
 
 <div class="modale" id="modale-cgv" aria-hidden="true">
     <div class="modale-contenu">
         <button type="button" class="fermer-modale" aria-label="Fermer">x</button>
-        <h2>Conditions générales de vente</h2>
-        <p>...</p>
+        <?php require __DIR__ . "/ContenusModales/ConditionsGeneralesVentes.php" ?>
     </div>
 </div>
