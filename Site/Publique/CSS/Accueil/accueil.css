@@ -1,0 +1,127 @@
+main {
+    display: grid;
+    grid-template-rows: 
+        auto
+        auto
+        1fr;
+}
+
+.zone-entreprise, .zone-equipe {
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+.description-entreprise, .description-equipe {
+    text-align: center;
+}
+
+.photo-entreprise, .photo-equipe-mobile, .photo-equipe-desktop {
+    justify-self: center;
+    align-self: center;
+    width: 80%;
+    height: 235px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.photo-equipe-desktop {
+    display: none;
+}
+
+.contenu-equipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.bouton-nos-menus {
+    display: inline-block;
+    padding: 10px 20px;
+    max-width: 180px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.zone-avis {
+    min-height: 0;
+    display: grid;
+    overflow-y: auto;
+}
+
+.avis-recuperer-miniature-mobile {
+    margin: 3%;
+    height: 80px;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.nom-avis {
+    margin-top: 1%;
+    margin-left: 2%;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+
+.titre-avis, .contenu-avis{
+    margin-left: 2%;
+} 
+
+.note-avis, .menu-avis {
+    justify-self: end;
+    margin-right: 2%;
+}
+
+.avis-recuperer-complette {
+    display: none;
+    margin: 3%;
+    height: 140px;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.information-avis {
+    display: grid;
+    grid-template-columns: 
+        1fr 
+        auto;
+}
+
+
+@media (min-width: 768px) {
+    .description-entreprise, .description-equipe {
+        max-width: 50%;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .photo-equipe-mobile {
+        display: none;
+    }
+
+    .photo-equipe-desktop {
+        display: grid;
+    }
+
+    .zone-avis {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .avis-recuperer-miniature-mobile {
+        display: none;
+    }
+
+    .avis-recuperer-complette {
+        display: grid;
+        margin: 1%;
+    }
+}

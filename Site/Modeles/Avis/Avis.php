@@ -82,5 +82,11 @@ class Avis {
         }
         $this->statutsAvisId = $statutsAvisId;
     }
+
+    public static function genererEtoiles(int $note): string {
+        $etoilesPleines = str_repeat("★", $note);
+        $etoilesVides = str_repeat("☆", 5 - $note);
+        return $etoilesPleines . $etoilesVides;
+    }
 }
 ?>

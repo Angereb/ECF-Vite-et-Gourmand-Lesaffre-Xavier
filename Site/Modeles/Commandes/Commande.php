@@ -12,13 +12,13 @@ class Commande {
     private int $menusId;
     private int $statutsCommandeId;
 
-    public function __construct(?int $commandesId, string $adresse, string $codePostal, DateTime $datePrestation, string $heureLivraison, DateTime $dateLivraison, int $convive, string $facture, int $utilisateursId, int $menusId, int $statutsCommandeId){
+    public function __construct(?int $commandesId, string $adresse, string $codePostal, DateTime $datePrestation, string $heureLivraison, DateTime $dateLivraison, int $convive, string $facture, int $utilisateursId, int $menusId, int $statutsCommandeId, bool $reconstruction = false){
         $this->commandesId = $commandesId;
         $this->setAdresse($adresse);
         $this->setCodePostal($codePostal);
-        $this->setDatePrestation($datePrestation);
+        $this->setDatePrestation($datePrestation, $reconstruction);
         $this->setHeureLivraison($heureLivraison);
-        $this->setDateLivraison($dateLivraison);
+        $this->setDateLivraison($dateLivraison, $reconstruction);
         $this->setConvive($convive);
         $this->setFacture($facture);
         $this->setUtilisateursId($utilisateursId);
@@ -60,8 +60,8 @@ class Commande {
         return $this->datePrestation;
     }
 
-    public function setDatePrestation(DateTime $datePrestation): void {
-        if ($datePrestation <= new DateTime("today")) {
+    public function setDatePrestation(DateTime $datePrestation, bool $reconstruction = false): void {
+        if (!$reconstruction && $datePrestation <= new DateTime("today")) {
             throw new Exception("La date de prestation ne peut être celle d'aujourd'hui ou passer.");
         }
         $this->datePrestation = $datePrestation;
@@ -82,8 +82,8 @@ class Commande {
         return $this->dateLivraison;
     }
 
-    public function setDateLivraison(DateTime $dateLivraison): void {
-        if ($dateLivraison <= new DateTime("today")) {
+    public function setDateLivraison(DateTime $dateLivraison, bool $reconstruction = false): void {
+        if (!$reconstruction && $dateLivraison <= new DateTime("today")) {
             throw new Exception("La date de livraison ne peut être celle d'aujourd'hui ou passer.");
         }
         if ($dateLivraison > $this->datePrestation) {

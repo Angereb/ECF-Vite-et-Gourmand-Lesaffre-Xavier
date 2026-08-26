@@ -99,7 +99,7 @@ class CommandeModele extends ModeleBase {
         $menusId = (int)$donnees["menusId"];
         $statutsCommandeId = (int)$donnees["statutsCommandeId"];
         $commande = new Commande(
-            $commandesId, $donnees["adresse"], $donnees["codePostal"], $datePrestation, $donnees["heureLivraison"], $dateLivraison, $convive, $donnees["facture"], $utilisateursId, $menusId, $statutsCommandeId);
+            $commandesId, $donnees["adresse"], $donnees["codePostal"], $datePrestation, $donnees["heureLivraison"], $dateLivraison, $convive, $donnees["facture"], $utilisateursId, $menusId, $statutsCommandeId, true);
         return $commande;
     }
 
@@ -142,7 +142,7 @@ class CommandeModele extends ModeleBase {
             $menusIdLigne = (int)$donnees["menusId"];
             $statutsCommandeIdLigne = (int)$donnees["statutsCommandeId"];
             $commandes[] = new Commande(
-                $commandesId, $donnees["adresse"], $donnees["codePostal"], $datePrestation, $donnees["heureLivraison"], $dateLivraison, $convive, $donnees["facture"], $utilisateursIdLigne, $menusIdLigne, $statutsCommandeIdLigne);
+                $commandesId, $donnees["adresse"], $donnees["codePostal"], $datePrestation, $donnees["heureLivraison"], $dateLivraison, $convive, $donnees["facture"], $utilisateursIdLigne, $menusIdLigne, $statutsCommandeIdLigne, true);
         }
         return $commandes;
     }

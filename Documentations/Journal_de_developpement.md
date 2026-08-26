@@ -95,3 +95,22 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Création du footer comprenant récupération des horaires et modales pour les mentions légales et le conditions générales de vente
 
 ---
+
+## 24 au 26 Août 2026
+
+### Objectifs
+
+- Développement de la page d'accueil
+- Développement de la page de contact
+
+### Réalisations
+
+- Page d'accueil en 3 zones (Entreprise, Equipe, Avis)
+- Récupérations des avis dans la bdd
+- Stylisation de la page Accueil par rapport au mockup
+- Page de contact avec formulaire de contact
+- Création d'une fonction d'envoie de mail lier à phpmailer
+- Stylisation de la page Contact
+- Ajout d'un composant Toast pour gérer les messages de validation ou d'erreur des formulaires
+
+---

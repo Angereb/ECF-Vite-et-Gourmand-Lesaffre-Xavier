@@ -19,12 +19,14 @@
     <link rel="stylesheet" href="/Site/Publique/CSS/style.css">
     <link rel="stylesheet" href="/Site/Publique/CSS/Composants/entete.css">
     <link rel="stylesheet" href="/Site/Publique/CSS/Composants/barreMenu.css">
+    <link rel="stylesheet" href="/Site/Publique/CSS/Composants/toast.css">
     <link rel="stylesheet" href="/Site/Publique/CSS/Composants/piedDePage.css">
     <?php foreach($css ?? [] as $fichierCSS): ?>
         <link rel="stylesheet" href="/Site/Publique/CSS/<?= $fichierCSS ?>">
     <?php endforeach; ?>
 
     <script defer src="/Site/Publique/JS/Composants/barreMenu.js"></script>
+    <script defer src="/Site/Publique/JS/Composants/toast.js"></script>
     <script defer src="/Site/Publique/JS/Composants/piedDePage.js"></script>
     <?php foreach($javascript ?? [] as $script): ?>
         <script defer src="/Site/Publique/JS/<?= $script ?>"></script>
@@ -34,6 +36,7 @@
 <body>
     <?php require __DIR__ . "/Composants/entete.php";?>
     <?php require __DIR__ . "/Composants/barreMenu.php";?>
+    <?php require __DIR__ . "/Composants/toast.php";?>
 
     <main>
         <?= $contenu ?? '' ?>

@@ -1,0 +1,49 @@
+main {
+    padding: 5% 10%;
+}
+
+.page-contact {
+    height: 100%;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    padding: 2%;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+}
+
+.titre-contact {
+    margin-bottom: 2%;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+.formulaire-contact {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.label-contact {
+    font-size: 18px;
+}
+
+.input-contact {
+    border: 1.5px solid #6B2338;
+    border-radius: 12px;
+    background-color: transparent;
+    padding: 1%;
+    font: inherit;
+    color: inherit;
+}
+
+.envoyer-contact {
+    align-items: center;
+    justify-self: end;
+    width: 120px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    font-size: 16px;
+}
