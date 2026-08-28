@@ -44,6 +44,19 @@ class ImageModele extends ModeleBase {
         return $images;
     }
 
+    public function rechercherParMenusId(int $menusId): array {
+        $images = [];
+        $requete = $this->pdo->prepare("SELECT * FROM images WHERE menusId = ? ORDER BY imagesId ASC");
+        $requete->execute([$menusId]);
+        while ($donnees = $requete->fetch(PDO::FETCH_ASSOC)){
+            $imagesId = (int)$donnees["imagesId"];
+            $photo = $donnees["photo"] !== null ? (string)$donnees["photo"] : null;
+            $menusIdRecupere = (int)$donnees["menusId"];
+            $images[] = new Image($imagesId, $donnees["titre"], $photo, $menusIdRecupere);
+        }
+        return $images;
+    }
+
     public function modifier(Image $image): void {
         if ($this->rechercherParId($image->getImagesId()) === null){
             throw new Exception("L'image que vous voulez modifier n'existe pas.");

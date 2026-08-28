@@ -114,3 +114,21 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Ajout d'un composant Toast pour gérer les messages de validation ou d'erreur des formulaires
 
 ---
+
+## 27 et 28 Août 2026
+
+### Objectifs
+
+- Développement de la page Nos Menus
+
+### Réalisations
+
+- Page de visualisations des différents Menus
+- Filtrage AJAX des menus afficher
+- Stylisation des filtres
+- Stylisation de la carte des menus en version compacte
+- Fonction de développement des menus de la version compacte vers la version détaillé
+- Transformation des images pour la galerie et les plats en base64
+- Modale pour visualisation des plats
+
+---

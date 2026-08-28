@@ -1,0 +1,271 @@
+main {
+    display: grid;
+    grid-template-rows: 
+        100px
+        1fr;
+}
+
+.zone-filtre {
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+#filtre-prixMax {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#filtre-prixMin {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#filtre-theme {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#filtre-regime {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#filtre-convivesMin {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.bouton-filtre {
+    display: inline-block;
+    width: 90px;
+    height: 45px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    border: none;
+    border-radius: 12px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+.bouton-filtre::placeholder {
+    color: #F3E7D8;
+    opacity: 1;
+    text-align: center;
+}
+
+.conteneur-menus {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+.carte-menu {
+    margin: 2% 5%;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    height: auto;
+    padding: 2%;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 0.2rem;
+}
+
+.haut-carte, .bas-carte {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.pastille-regime, .prix-carte {
+    justify-self: end;
+    align-self: center;
+}
+
+.pastille-regime {
+    background-color: #C98A2C;
+    color: black;
+    border-radius: 12px;
+    margin-right: 1%;
+    padding: 1% 5%;
+}
+
+.carte-ouverte {
+    margin: 2% 5%;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    height: auto;
+    max-height: 90%;
+    padding: 2%;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 0.3rem;
+    overflow-y: auto;
+}
+
+.visuel-carte {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.galerie-conteneur-mobile {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.galerie-conteneur-desktop {
+    display: none;
+}
+
+.image-galerie {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    width: 100%;
+}
+
+.conditions-menu {
+    border: 2px solid #6B2338;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.liste-plats {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.badge-plat {
+    display: inline-block;
+    padding: 1px;
+    margin-right:  5%;
+    max-width: 100px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.bas-carte-ouverte {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.stock {
+    justify-self: center;
+}
+
+.nav-carte  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.fermer-detail, .bouton-commander {
+    display: inline-block;
+    padding: 5px;
+    max-width: 100px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.bouton-commander {
+    justify-self: end;
+}
+
+.zone-menu-detaillee {
+    display: none;
+}
+
+#modale-plat .modale-contenu {
+     width: 300px; 
+}
+
+.contenu-plat {
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.informations-plat {
+    margin-top: 2%;
+    gap: 0.2rem;
+}
+
+#modale-plat-allergenes {
+    font-style: italic;
+}
+
+@media (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-rows: none;
+        grid-template-columns: 
+            120px 
+            1fr;
+    }
+
+    .zone-filtre {
+        width: 120px;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .bouton-filtre {
+        margin-top: 15%;
+    }
+
+    .conteneur-menus {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .conteneur-menus.detail-ouvert {
+        grid-template-columns: 390px 1fr;
+    }
+
+    .zone-menu-detaillee.active {
+        margin: 2% 5%;
+        border: 3px solid #6B2338;
+        border-radius: 20px;
+        height: auto;
+        max-height: 100%;
+        padding: 2%;
+        display: grid;
+        grid-template-columns: 
+            1fr
+            auto;
+        gap: 0.3rem;
+        overflow-y: auto;
+    }
+
+    .informations {
+        display: grid;
+        grid-template-rows: auto;
+        gap: 0.3rem;
+        overflow-y: auto;
+    }
+
+    .visuel-carte {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    
+    .galerie-conteneur-mobile {
+        display: none;
+    }
+    .galerie-conteneur-desktop {
+        display: flex;
+        flex-direction: column;
+        max-height: 400px;
+        overflow-y: auto;
+        gap: 10px;
+    }
+    .galerie-conteneur-desktop .image-galerie {
+        flex: none;
+        width: 100%;
+    }
+}

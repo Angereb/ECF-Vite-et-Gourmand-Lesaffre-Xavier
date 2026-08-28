@@ -1,9 +1,11 @@
 <?php 
 require_once __DIR__ . "/../Modeles/Plats/PlatModele.php";
-require_once __DIR__ . "/../Modeles/Plats/Plat.php";
+require_once __DIR__ . "/../Modeles/MenusPlats/MenuPlatModele.php";
 
 $modele = new PlatModele();
+$modele2 = new MenuPlatModele();
 
+/*
 echo "Test 1 : rechercherParId sur un plat existant\n";
 $plat = $modele->rechercherParId(1);
 if ($plat !== null) {
@@ -72,5 +74,23 @@ $resultats = $modele->rechercherFiltrer(categorie: "Entrée");
 echo count($resultats) . " plat(s) trouvé(s) en catégorie Entrée\n";
 foreach ($resultats as $m) {
     echo "- " . $m->getTitre() . " : " . $m->getCategorie() . "\n";
+}
+*/
+
+echo "\nTest 9 : création d'un nouveau plat et liaison a un menu\n";
+$plats5 = new Plat(null, "Café Gourmand", "Dessert", null, true, 1);
+try {
+    $modele->ajouter($plats5);
+    echo "\nOK - création d'un plat réussie\n";
+} catch (Exception $e) {
+    echo "\nECHEC - Pas de nouveau plat\n";
+}
+
+
+try{
+    $modele2->ajouter(1, 6);
+    echo "\nOK - liaison réussie\n";
+} catch (Exception $e) {
+    echo "\nECHEC - Liaison échouer\n";
 }
 ?>
