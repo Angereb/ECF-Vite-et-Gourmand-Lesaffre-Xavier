@@ -83,11 +83,24 @@ main {
 }
 
 .pastille-regime {
-    background-color: #C98A2C;
-    color: black;
     border-radius: 12px;
     margin-right: 1%;
     padding: 1% 5%;
+}
+
+.regime-classique {
+    background-color: #C98A2C;
+    color: black;
+}
+
+.regime-vegetarien {
+    background-color: #6B7A4F;
+    color: white;
+}
+
+.regime-vegan {
+    background-color: #4A5D3A;
+    color: white;
 }
 
 .carte-ouverte {
@@ -143,6 +156,7 @@ main {
     background-color: #6B2338;
     color: #F3E7D8;
     border-radius: 10px;
+    border: none;
     text-align: center;
 }
 
@@ -163,14 +177,18 @@ main {
 .fermer-detail, .bouton-commander {
     display: inline-block;
     padding: 5px;
-    max-width: 100px;
+    max-width: 110px;
     background-color: #6B2338;
     color: #F3E7D8;
     border-radius: 12px;
+    border: none;
     text-align: center;
 }
 
 .bouton-commander {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     justify-self: end;
 }
 
@@ -221,6 +239,7 @@ main {
     .conteneur-menus {
         display: grid;
         grid-template-columns: 1fr;
+        min-height: 0;
     }
 
     .conteneur-menus.detail-ouvert {

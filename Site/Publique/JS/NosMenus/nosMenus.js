@@ -48,11 +48,21 @@ function afficherMenus(menus) {
     });
 }
 
+function classeRegime(regime) {
+    const correspondance = {
+        "Classique": "regime-classique",
+        "Végétarien": "regime-vegetarien",
+        "Vegan": "regime-vegan"
+    };
+    return correspondance[regime] ?? "regime-classique";
+}
+// Penser a vérifier que les libellés de régime corresponde avec la bdd
+
 function construireHtmlMiniature(menu) {
     return `
         <div class="haut-carte">
             <h3 class="titre-carte">${echapperHtml(menu.titre)}</h3>
-            <span class="pastille-regime">${echapperHtml(menu.regime)}</span>
+            <span class="pastille-regime ${classeRegime(menu.regime)}">${echapperHtml(menu.regime)}</span>
         </div>
         <p>${echapperHtml(menu.description)}</p>
         <div class="bas-carte">
@@ -146,7 +156,7 @@ function construireHtmlDetail(menu) {
         <div class="informations">
             <div class="haut-carte">
                 <h3>${echapperHtml(menu.titre)}</h3>
-                <span class="pastille-regime">${echapperHtml(menu.regime)}</span>
+                <span class="pastille-regime ${classeRegime(menu.regime)}">${echapperHtml(menu.regime)}</span>
             </div>
             <div class="visuel-carte">
                 <p>${echapperHtml(menu.description)}</p>
@@ -162,7 +172,7 @@ function construireHtmlDetail(menu) {
             </div>
             <nav class="nav-carte">
                 <button type="button" class="fermer-detail">Fermer</button>
-                <button type="button" class="bouton-commander">Commander</button>
+                <a href="?page=commande&menuId=${menu.id}" class="bouton-commander">Commander</a>
             </nav>
         </div>
         <div class="galerie-conteneur-desktop">${htmlGalerie}</div>

@@ -2,7 +2,7 @@ main {
     padding: 5% 10%;
 }
 
-.page-contact {
+.page-connexion {
     height: 100%;
     border: 3px solid #6B2338;
     border-radius: 20px;
@@ -11,25 +11,25 @@ main {
     grid-template-rows: auto minmax(0, 1fr);
 }
 
-.titre-contact {
+.titre-connexion {
     margin-bottom: 2%;
     justify-self: center;
     align-self: center;
     text-align: center;
 }
 
-.formulaire-contact {
+.formulaire-connexion {
     height: 100%;
     display: grid;
     grid-gap: 1rem;
     overflow-y: auto;
 }
 
-.label-contact {
+.label-connexion {
     font-size: 18px;
 }
 
-.input-contact {
+.input-connexion {
     border: 1.5px solid #6B2338;
     border-radius: 12px;
     background-color: transparent;
@@ -38,12 +38,7 @@ main {
     color: inherit;
 }
 
-textarea.input-contact {
-    min-height: 80px;
-    resize: vertical;
-}
-
-.envoyer-contact {
+.valider-connexion {
     align-items: center;
     justify-self: end;
     width: 120px;
@@ -53,4 +48,9 @@ textarea.input-contact {
     background-color: #6B2338;
     color: #F3E7D8;
     font-size: 16px;
+}
+
+.contact-assistance {
+    font-size: 10px;
+    color: blue;
 }

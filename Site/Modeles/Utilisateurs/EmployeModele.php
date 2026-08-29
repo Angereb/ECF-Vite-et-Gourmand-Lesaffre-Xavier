@@ -48,6 +48,21 @@ class EmployeModele extends ModeleBase {
         return $employe;
     }
 
+    public function rechercherParEmail(string $email): ?Employe {
+        $requete = $this->pdo->prepare("SELECT * FROM employes JOIN utilisateurs ON utilisateurs.utilisateursId = employes.utilisateursId WHERE utilisateurs.email = ?");
+        $requete->execute([$email]);
+        $donnees = $requete->fetch(PDO::FETCH_ASSOC);
+        if ($donnees === false){
+            return null;
+        }
+        $utilisateursId = (int)$donnees["utilisateursId"];
+        $administrateur = (bool)$donnees["administrateur"];
+        $actif = (bool)$donnees["actif"];
+        $employe = new Employe(
+            $utilisateursId, $donnees["nom"], $donnees["prenom"], $donnees["email"], $donnees["motDePasse"], true, $administrateur, $actif);
+        return $employe;
+    }
+
     public function modifier(Employe $employe) : void {
         if ($this->rechercherParId($employe->getUtilisateursId()) === null) {
             throw new Exception("L'employe à modifier n'existe pas.");

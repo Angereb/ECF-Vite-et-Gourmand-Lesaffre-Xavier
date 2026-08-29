@@ -48,6 +48,20 @@ class ClientModele extends ModeleBase {
         return $client;
     }
 
+    public function rechercherParEmail(string $email): ?Client {
+        $requete = $this->pdo->prepare("SELECT * FROM clients JOIN utilisateurs ON utilisateurs.utilisateursId = clients.utilisateursId WHERE utilisateurs.email = ?");
+        $requete->execute([$email]);
+        $donnees = $requete->fetch(PDO::FETCH_ASSOC);
+        if ($donnees === false){
+            return null;
+        }
+        $utilisateursId = (int)$donnees["utilisateursId"];
+        $actif = (bool)$donnees["actif"];
+        return new Client(
+            $utilisateursId, $donnees["nom"], $donnees["prenom"], $donnees["email"], $donnees["motDePasse"], true, $donnees["numeroTelephone"], $donnees["adressePostale"], $actif
+        );
+    }
+
     public function modifier(Client $client) : void {
         if ($this->rechercherParId($client->getUtilisateursId()) === null) {
             throw new Exception("Le client à modifier n'existe pas.");

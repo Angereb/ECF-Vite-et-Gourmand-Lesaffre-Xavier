@@ -132,3 +132,23 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Modale pour visualisation des plats
 
 ---
+
+## 29 Août 2026
+
+## Objectifs
+
+- Développement du système complet d'authentification (inscription, connexion, deconnexion)
+
+### Réalisations
+
+- Page d'inscription avec formulaire complet et vérification de mail
+- Page de connexion avec création de session selon type d'utilisateur ce connectant
+- Ajout de fonction de recherche par email dans les modèles de client et d'employé
+- Ajout du contrôleur gérant la déconnexion
+- Ajustement des boutons du menu du site selon état de la session
+- Ajustement du lien de commande dans les menus selon état de la session 
+- Ajout d'une détection du régime alimentaire pour faire varier le style du badge
+- Correction de style css pour la page contact et la page nos menus
+- Stylisation des page d'inscription et de Connexion
+
+---

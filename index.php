@@ -23,6 +23,22 @@ switch ($page){
     case 'detailMenus':
         require_once __DIR__ . '/Site/Controlleurs/NosMenus/detailMenusControleur.php';
         break;
+
+    case 'inscription':
+        require_once __DIR__ . '/Site/Controlleurs/Authentification/inscriptionControleur.php';
+        break;
+    
+    case 'connexion':
+        require_once __DIR__ . '/Site/Controlleurs/Authentification/connexionControleur.php';
+        break;
+
+    case 'deconnexion':
+        require_once __DIR__ . '/Site/Controlleurs/Authentification/deconnexionControleur.php';
+        break;
+    
+    case 'commande':
+        require_once __DIR__ . '/Site/Controlleurs/Commande/commandeControleur.php';
+        break;
     
     default:
         echo "Page introuvable";
