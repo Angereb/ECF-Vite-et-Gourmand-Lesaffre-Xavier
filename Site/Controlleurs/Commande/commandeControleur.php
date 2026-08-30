@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . "/../../Modeles/Utilisateurs/ClientModele.php";
+
 if (isset($_GET["menuId"])) {
     $_SESSION["menuIdCommande"] = (int)$_GET["menuId"];
 }
@@ -20,13 +22,18 @@ $css = [
     "Commande/commande.css",
 ];
 
-$javascript = [];
+$javascript = [
+    "Commande/commande.js",
+];
 
 $messageErreur = null;
 
 $toastMessage = $_SESSION["messageSucces"] ?? null;
 $toastType = "succes";
 unset($_SESSION["messageSucces"]);
+
+$clientModele = new ClientModele;
+$client = $clientModele->rechercherParId($_SESSION["client"]["utilisateursId"]);
 
 ob_start();
 require __DIR__ . '/../../Vus/Commande/commande.php';

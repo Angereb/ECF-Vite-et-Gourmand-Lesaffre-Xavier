@@ -39,6 +39,10 @@ switch ($page){
     case 'commande':
         require_once __DIR__ . '/Site/Controlleurs/Commande/commandeControleur.php';
         break;
+
+    case 'reinitialisationMenu':
+        require_once __DIR__ . '/Site/Controlleurs/Commande/reinitialisationMenuControleur.php';
+        break;
     
     default:
         echo "Page introuvable";
