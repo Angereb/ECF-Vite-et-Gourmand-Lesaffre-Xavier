@@ -9,7 +9,7 @@ require_once __DIR__ . "/../HistoriquesStatutsCommandes/HistoriqueStatutCommande
 class CommandeModele extends ModeleBase {
     private const CODES_POSTAUX_BORDEAUX = ["33000", "33100", "33200", "33300", "33800"];
 
-    private function calculerFraisLivraison(string $codePostal) : float {
+    public function calculerFraisLivraison(string $codePostal) : float {
         if (in_array($codePostal, self::CODES_POSTAUX_BORDEAUX, true)) {
             return 0.0;
         }
@@ -20,11 +20,7 @@ class CommandeModele extends ModeleBase {
         $prixLivraison = $this->calculerFraisLivraison($codePostal);
         $prixParPersonne = bcdiv($menu->getPrix(), (string)$menu->getMinimumConvive(), 4);
         $prixMenuBrut = bcmul($prixParPersonne, (string)$convive, 4);
-        if ($convive >= ($menu->getMinimumConvive() + 5)) {
-            $tauxReduction = "0.10";
-        } else {
-            $tauxReduction = "0.00";
-        }
+        $tauxReduction = ($convive >= ($menu->getMinimumConvive() + 5)) ? "0.10" : "0.00";
         $reduction = bcmul($prixMenuBrut, $tauxReduction, 2);
         $prixMenuFinal = bcsub($prixMenuBrut, $reduction, 2);
         $facture = bcadd($prixMenuFinal, (string)$prixLivraison, 2);
@@ -40,7 +36,7 @@ class CommandeModele extends ModeleBase {
         return $convive >= $menu->getMinimumConvive();
     }
 
-    public function ajouter(Commande $commande, Menu $menu) : void {
+    public function ajouter(Commande $commande, Menu $menu) : int {
         if (!$this->idExisteDans("utilisateurs", "utilisateursId", $commande->getUtilisateursId())){
             throw new Exception("L'utilisateur sélectionné n'existe pas.");
         }
@@ -78,6 +74,7 @@ class CommandeModele extends ModeleBase {
             $historiqueModele = new HistoriqueStatutCommandeModele();
             $historiqueModele->ajouter($historique);
             $this->pdo->commit();
+            return $nouvelleCommandeId;
         } catch (Exception $e){
             $this->pdo->rollBack();
             throw new Exception("Erreur lors de la création de la commande : " . $e->getMessage());

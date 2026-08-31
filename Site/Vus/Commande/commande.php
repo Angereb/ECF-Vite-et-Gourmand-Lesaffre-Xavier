@@ -24,10 +24,21 @@
                 <label for="informationsComplementaireInput" class="label-commande">Information supplémentaire de livraison : </label>
                 <textarea class="input-commande" id="informationsComplementaireInput" placeholder="Entrée, étage, lieu différé ..." name="informationsComplementaire" rows="3" required><?= htmlspecialchars($_POST['informationsComplementaire'] ?? '') ?></textarea>
             </form>
+            <p class="frais-livraison" id="frais-livraison"></p>
         </div>
     </section>
     <section class="informations-menu" id="informations-menu" data-menu-id="<?= isset($_SESSION['menuIdCommande']) ? (int)$_SESSION['menuIdCommande'] : '' ?>">
         <a href="?page=reinitialisationMenu" class="bouton-nos-menus">Choisir un autre menu</a>
     </section>
 </section>
-<section class="finalisation-commande"></section>
+<section class="finalisation-commande">
+    <div class="zone-erreur">
+        <?php if ($messageErreur !== null): ?>
+            <div class="message-erreur">
+                <?= htmlspecialchars($messageErreur) ?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <p class="total-facture" id="total"></p>
+    <button type="submit" class="valider-commande" form="formulairePrestation" name="action" value="commander">Valider</button>
+</section>

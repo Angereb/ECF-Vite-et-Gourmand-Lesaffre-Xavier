@@ -43,6 +43,10 @@ switch ($page){
     case 'reinitialisationMenu':
         require_once __DIR__ . '/Site/Controlleurs/Commande/reinitialisationMenuControleur.php';
         break;
+
+    case 'calculerPrix':
+        require_once __DIR__ . "/Site/Controlleurs/Commande/calculerPrixControleur.php";
+        break;
     
     default:
         echo "Page introuvable";

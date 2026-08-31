@@ -26,6 +26,18 @@ class StatutCommandeModele extends ModeleBase {
         return $statutsCommande;
     }
 
+    public function rechercherParLibelle(string $libelle): ?StatutCommande {
+        $requete = $this->pdo->prepare("SELECT * FROM statutsCommande WHERE libelle = ?");
+        $requete->execute([$libelle]);
+        $donnee = $requete->fetch(PDO::FETCH_ASSOC);
+        if ($donnee === false){
+            return null;
+        }
+        $statutsCommandeId = (int)$donnee["statutsCommandeId"];
+        $statutsCommande = new StatutCommande($statutsCommandeId, $donnee["libelle"]);
+        return $statutsCommande;
+    }
+
     public function rechercherTous(): array {
         $statutsCommande = [];
         $requete = $this->pdo->prepare("SELECT * FROM statutsCommande ORDER BY libelle ASC");

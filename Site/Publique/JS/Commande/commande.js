@@ -27,7 +27,20 @@ function afficherMenuSelectionner() {
                     checkboxPlat.addEventListener('change', () =>{
                         actualiserAllergenes(menu);
                     });
-                })
+                });
+                document.getElementById("conviveInput").addEventListener('change', () => {
+                    calculerPrix(menu);
+                });
+                document.getElementById("codePostalInput").addEventListener('change', () => {
+                    calculerPrix(menu);
+                });
+                document.querySelectorAll('#conviveInput, #codePostalInput').forEach(champ => {
+                    champ.addEventListener('keydown', (evenement) => {
+                        if (evenement.key === 'Enter') {
+                            evenement.preventDefault();
+                        }
+                    });
+                });
             });
     }
 }
@@ -61,9 +74,10 @@ function construireHtmlMenu(menu) {
             <p id="menu-allergenes"></p>
             ${menu.conditions ? `<div class="conditions-menu">${echapperHtml(menu.conditions)}</div>` : ''}
             <div class="bas-carte-ouverte">
-                <p>Convives min : ${menu.minimumConvive}</p>
-                <p class="stock">Stock : ${menu.stock}</p>
-                <p>Prix : ${menu.prix}€</p>
+                <label for="conviveInput" class="label-commande">Convives : </label>
+                <input type="number" class="input-commande" id="conviveInput" form="formulairePrestation" name="convive" required>
+                <p id="prix-menu"></p>
+                <p id="reduction"></p>
             </div>
         </div>
     `;
@@ -82,6 +96,23 @@ function actualiserAllergenes(menu) {
     document.getElementById('menu-allergenes').textContent = allergenesUniques.length > 0 
         ? "Allergènes : " + allergenesUniques.join(", ") 
         : "Aucun allergène déclaré";
+}
+
+function calculerPrix() {
+    const conviveInput = document.getElementById("conviveInput");
+    const convive = conviveInput.value;
+    const codePostalInput = document.getElementById("codePostalInput");
+    const codePostal = codePostalInput.value;
+    if (convive !== '' && codePostal !== '') {
+        fetch(`?page=calculerPrix&convive=${convive}&codePostal=${codePostal}`)
+            .then(response => response.json())
+            .then(detailFacture => {
+                document.getElementById('prix-menu').textContent = "Prix : " + detailFacture.prixMenu + "€";
+                document.getElementById('reduction').textContent = "Réduction : " + detailFacture.reduction + "€";
+                document.getElementById('frais-livraison').textContent = "Prix livraison : " +  detailFacture.fraisLivraison + "€";
+                document.getElementById('total').textContent = "Total : " + detailFacture.total + "€";
+            });
+    };
 }
 
 afficherMenuSelectionner();
