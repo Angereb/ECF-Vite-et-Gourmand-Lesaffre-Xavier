@@ -152,3 +152,26 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Stylisation des page d'inscription et de Connexion
 
 ---
+
+## 30 et 31 Août 2026 et 01 Septembre 2026
+
+### Objectifs
+
+- Développement de la page de commande
+
+### Réalisations
+
+- Page de commande avec :
+ - Récupération des informations client
+ - Formulaire des informations de prestation
+ - Récupération du menu sélectionner
+ - Radio pour sélection des plats
+ - Affichage dynamique du prix
+- Développement du contrôleur avec envoie de mail sur fin de formulaire valide
+- Stylilisation de la page de commande
+
+### Problèmes
+
+- Un petit soucis de style persiste en cas de redimensionnement de la page d'une taille desktop vers une taille mobile
+
+---
