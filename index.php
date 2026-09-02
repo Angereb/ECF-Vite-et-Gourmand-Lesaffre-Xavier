@@ -47,6 +47,10 @@ switch ($page){
     case 'calculerPrix':
         require_once __DIR__ . "/Site/Controlleurs/Commande/calculerPrixControleur.php";
         break;
+
+    case 'espacePerso':
+        require_once __DIR__ . '/Site/Controlleurs/EspacePerso/espacePersoControleur.php';
+        break;
     
     default:
         echo "Page introuvable";

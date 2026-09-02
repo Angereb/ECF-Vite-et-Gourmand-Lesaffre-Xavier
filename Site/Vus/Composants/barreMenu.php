@@ -1,13 +1,13 @@
 <?php
 /**@var string $page */
 $estConnecte = isset($_SESSION["client"]) || isset($_SESSION["employe"]);
+$ongletDefaut = null;
 if (isset($_SESSION["employe"])) {
-    $lienEspace = $_SESSION["employe"]["administrateur"] ? "espaceAdministrateur" : "espaceEmploye";
+    $ongletDefaut = "infosEmploye";
 } elseif (isset($_SESSION["client"])) {
-    $lienEspace = "espaceClient";
-} else {
-    $lienEspace = null;
+    $ongletDefaut = "infosClient";
 }
+$lienEspace = "espacePerso&onglet=" . $ongletDefaut;
 ?>
 
 <nav class="barre-menu">
