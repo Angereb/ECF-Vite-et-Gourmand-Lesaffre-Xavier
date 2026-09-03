@@ -1,12 +1,8 @@
 <?php
 /**@var array $commandesComplettes */
 ?>
-<?php if ($messageErreur !== null): ?>
-    <div class="message-erreur">
-        <?= htmlspecialchars($messageErreur) ?>
-    </div>
-<?php endif; ?> 
 <section class="zone-onglet-commandes">
+    <h3 class="titre-zone-commandes">Vos Commandes</h3>
     <?php foreach ($commandesComplettes as $commande): ?>
         <article class="commande-recuperer">
             <p class="informations-commande">Menu : <?= htmlspecialchars($commande['menuTitre']) ?></p>
