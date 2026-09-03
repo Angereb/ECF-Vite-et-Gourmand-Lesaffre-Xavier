@@ -46,6 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         switch($formulaire){
             case 'commander':
                 $adresse = $_POST["adresseLivraison"] ?? "";
+                $informationsComplementaire = $_POST["informationsComplementaire"] ?? "";
+                if ($informationsComplementaire !== "") {
+                    $adresse .= " - " . $informationsComplementaire;
+                }
                 $codePostal = $_POST["codePostal"] ?? "";
                 $datePrestation = new DateTime($_POST["datePrestation"] ?? "");
                 $heureLivraison = ($_POST["heureLivraison"] ?? "") . ":00";
@@ -88,14 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 $platEntreeId = $_POST["plat-Entrée"] ?? null;
                 $platPlatId = $_POST["plat-Plat"] ?? null;
                 $platDessertId = $_POST["plat-Dessert"] ?? null;
-                if ($platEntreeId !== null) {
-                    $commandePlatModele->ajouter($commandesId, (int)$platEntreeId);
-                }
-                if ($platPlatId !== null) {
-                    $commandePlatModele->ajouter($commandesId, (int)$platPlatId);
-                }
-                if ($platDessertId !== null) {
-                    $commandePlatModele->ajouter($commandesId, (int)$platDessertId);
+                if ($platEntreeId === null || $platPlatId === null || $platDessertId === null) {
+                    throw new Exception("Veuillez sélectionner une entrée, un plat et un dessert.");
                 }
                 try {
                     $corpsMail = "<p>Bonjour " . htmlspecialchars($_SESSION["client"]["prenom"]) . ",</p>";

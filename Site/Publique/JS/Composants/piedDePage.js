@@ -9,14 +9,22 @@ document.querySelectorAll('[data-modale]').forEach(bouton => {
 document.querySelectorAll('.fermer-modale').forEach(bouton => {
     bouton.addEventListener('click', () => {
         const modale = bouton.closest('.modale');
+        bouton.blur();
         modale.classList.remove('ouverte');
         modale.setAttribute('aria-hidden', 'true');
     });
 });
 
 document.querySelectorAll('.modale').forEach(modale => {
-    modale.addEventListener('click', (evenement) => {
-        if (evenement.target === modale) {
+    let clicCommenceSurOverlay = false;
+
+    modale.addEventListener('mousedown', (evenement) => {
+        clicCommenceSurOverlay = (evenement.target === modale);
+    });
+
+    modale.addEventListener('mouseup', (evenement) => {
+        if (clicCommenceSurOverlay && evenement.target === modale) {
+            if (document.activeElement) document.activeElement.blur();
             modale.classList.remove('ouverte');
             modale.setAttribute('aria-hidden', 'true');
         }

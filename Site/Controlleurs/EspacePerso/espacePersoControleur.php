@@ -14,7 +14,7 @@ switch ($onglet) {
         break;
 
     case 'commandesClient':
-        require __DIR__ . '/Client/ongletCommandeClient.php';
+        require __DIR__ . '/Client/ongletCommandesClientControleur.php';
         break;
 
     case 'avisClient':
@@ -36,14 +36,9 @@ $javascript = array_merge($jsCommun, $jsOnglet);
 
 $messageErreur = null;
 
-$toastMessage = $_SESSION["messageSucces"] ?? null;
-$toastType = "succes";
-unset($_SESSION["messageSucces"]);
-
 ob_start();
 require __DIR__ . '/../../Vus/EspacePerso/calqueEspacePerso.php';
 $contenu = ob_get_clean();
-
 require __DIR__ . '/../../Vus/calquePrincipal.php';
 
 ?>
