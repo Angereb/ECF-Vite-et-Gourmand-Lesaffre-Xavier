@@ -18,7 +18,7 @@ switch ($onglet) {
         break;
 
     case 'avisClient':
-        require __DIR__ . '/Client/ongletAvisClient.php';
+        require __DIR__ . '/Client/ongletAvisClientControleur.php';
         break;
         
     default:

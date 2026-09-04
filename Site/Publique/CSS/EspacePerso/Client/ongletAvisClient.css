@@ -1,0 +1,73 @@
+.zone-onglet-avis {
+    height: auto;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    padding: 2%;
+    margin: 2%;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+}
+
+.tableau-avis {
+    display : grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.commandes-sans-avis, .commandes-avec-avis {
+    margin: 2% 5%;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    height: auto;
+    padding: 2%;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 0.2rem;
+}
+
+.donner-avis, .envoyer-avis {
+    align-items: center;
+    justify-self: end;
+    width: 120px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    font-size: 16px;
+}
+
+#modale-donner-avis .modale-contenu {
+    width: 80vw;
+}
+
+.formulaire-avis {
+    width: 75vw;
+    display: grid;
+    grid-gap: 0.3rem;
+    overflow-y: auto;
+}
+
+.zone-titre-avis, .zone-commentaire-avis, .zone-note-avis {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-avis {
+    border: 1.5px solid #6B2338;
+    border-radius: 12px;
+    background-color: transparent;
+    padding: 0.2rem;
+    font: inherit;
+    color: inherit;
+}
+
+select.input-avis {
+    text-align: right;
+}
+
+textarea.input-avis {
+    min-height: 50px;
+    resize: vertical;
+}

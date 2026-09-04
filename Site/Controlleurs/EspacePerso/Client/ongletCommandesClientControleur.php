@@ -12,9 +12,9 @@ if (!isset($_SESSION["client"])) {
 
 $titreOnglet = "Mes commandes";
 
-$cssOnglet = ["EspacePerso/Client/ongletCommande.css"];
+$cssOnglet = ["EspacePerso/Client/ongletCommandeClient.css"];
 
-$jsOnglet = ["EspacePerso/Client/ongletCommandes.js"];
+$jsOnglet = ["EspacePerso/Client/ongletCommandesClient.js"];
 
 $messageErreur = null;
 
@@ -59,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         switch($formulaire){
             case 'modifierCommande':
                 $commandeId = (int)($_POST['commandeId'] ?? 0);
-                $commandeModele = new CommandeModele();
                 $commandeExistante = $commandeModele->rechercherParId($commandeId);
                 if ($commandeExistante === null) {
                     throw new Exception("Commande introuvable.");

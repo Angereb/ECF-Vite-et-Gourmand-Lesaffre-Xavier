@@ -3,6 +3,7 @@ main {
 }
 
 .espace-perso {
+    width: 100%;
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: 0;
@@ -79,6 +80,10 @@ main {
 .onglet-lien[aria-current="page"] {
     background-color: #F3E7D8;
     color: #6B2338;
+}
+
+.contenu-onglet {
+    overflow-y: auto;
 }
 
 @media (min-width: 768px) {

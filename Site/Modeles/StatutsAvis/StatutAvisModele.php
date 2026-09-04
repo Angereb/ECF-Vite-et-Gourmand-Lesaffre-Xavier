@@ -26,6 +26,18 @@ class StatutAvisModele extends ModeleBase {
         return $statutsAvis;
     }
 
+    public function rechercherParLibelle(string $libelle): ?StatutAvis {
+        $requete = $this->pdo->prepare("SELECT * FROM statutsAvis WHERE libelle = ?");
+        $requete->execute([$libelle]);
+        $donnee = $requete->fetch(PDO::FETCH_ASSOC);
+        if ($donnee === false){
+            return null;
+        }
+        $statutsAvisId = (int)$donnee["statutsAvisId"];
+        $statutsAvis = new StatutAvis($statutsAvisId, $donnee["libelle"]);
+        return $statutsAvis;
+    }
+
     public function rechercherTous(): array {
         $statutsAvis = [];
         $requete = $this->pdo->prepare("SELECT * FROM statutsAvis ORDER BY libelle ASC");

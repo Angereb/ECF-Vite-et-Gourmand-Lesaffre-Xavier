@@ -175,3 +175,21 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Un petit soucis de style persiste en cas de redimensionnement de la page d'une taille desktop vers une taille mobile
 
 ---
+
+## 02 au 04 Septembre 2026
+
+### Objectifs
+
+- Développement de l'espace personnel client en trois onglet : "Mes Informations", "Mes Commandes" et "Mes avis".
+
+### Réalisations
+
+- Développement d'un routage secondaire pour navigation entre les onglets des espaces personnels
+- Développement du Menu de navigation entre les onglets
+- Stylisation du Menu onglets
+- Développement de l'onglet "Mes Informations" permettant de modifier les informations d'un compte
+- Développement de l'onglet "Mes Commandes" permettant de modifier les commandes non accepté côté entreprise
+- Développement de l'onglet "Mes Avis" permettant de voir les commandes terminer et les avis et de poster des avis si aucun avis n'a été poster pour une commande terminer
+- Stylisation des trois onglets
+
+---

@@ -66,6 +66,21 @@ class AvisModele extends ModeleBase{
         return $avis;
     }
 
+    public function rechercherParCommande(int $commandesId): ?Avis {
+        $requete = $this->pdo->prepare("SELECT * FROM avis WHERE commandesId = ?");
+        $requete->execute([$commandesId]);
+        $donnees = $requete->fetch(PDO::FETCH_ASSOC);
+        if ($donnees === false){
+            return null;
+        }
+        $avisId = (int)$donnees["avisId"];
+        $note = (int)$donnees["note"];
+        $commandesIdRecupere = (int)$donnees["commandesId"];
+        $statutsAvisId = (int)$donnees["statutsAvisId"];
+        $avis = new Avis($avisId, $donnees["titre"], $note, $donnees["commentaire"], $commandesIdRecupere, $statutsAvisId);
+        return $avis;
+    }
+
     public function modifier(Avis $avis): void {
         if ($this->rechercherParId($avis->getAvisId()) === null){
             throw new Exception("L'avis à modifier n'existe pas.");

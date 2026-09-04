@@ -8,7 +8,7 @@ if (!isset($_SESSION["client"])) {
 
 $titreOnglet = "Mes informations";
 
-$cssOnglet = [];
+$cssOnglet = ["EspacePerso/Client/ongletCompteClient.css"];
 
 $jsOnglet = [];
 

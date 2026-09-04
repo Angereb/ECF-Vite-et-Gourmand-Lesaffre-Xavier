@@ -3,34 +3,36 @@
 ?>
 <section class="zone-onglet-commandes">
     <h3 class="titre-zone-commandes">Vos Commandes</h3>
-    <?php foreach ($commandesComplettes as $commande): ?>
-        <article class="commande-recuperer">
-            <p class="informations-commande">Menu : <?= htmlspecialchars($commande['menuTitre']) ?></p>
-            <p class="informations-commande">Adresse de Livraison : <?= htmlspecialchars($commande['adresse']) ?></p>
-            <p class="informations-commande">Code Postal : <?= htmlspecialchars($commande['codePostal']) ?></p>
-            <p class="informations-commande">Date de Prestation : <?= htmlspecialchars($commande['datePrestation']->format('d/m/Y')) ?></p>
-            <p class="informations-commande">Heure de Prestation: <?= htmlspecialchars($commande['heureLivraison']) ?></p>
-            <p class="informations-commande">Date de Livraison : <?= htmlspecialchars($commande['dateLivraison']->format('d/m/Y')) ?></p>
-            <p class="informations-commande">Convive : <?= htmlspecialchars($commande['convive']) ?></p>
-            <p class="informations-commande">Prix : <?= htmlspecialchars($commande['facture']) ?> €</p>
-            <?php foreach ($commande['plats'] as $plat): ?>
-                <p class="informations-commande">Plat : <?= htmlspecialchars($plat->getTitre()) ?></p>
-            <?php endforeach; ?>
-            <p class="informations-commande">Statut actuel : <?= htmlspecialchars($commande['statut']) ?></p>
-             <?php if ($commande['statut'] === 'En attente'): ?>
-                <button type="button" class="bouton-modifier"
-                    data-id="<?= $commande['id'] ?>"
-                    data-adresse="<?= htmlspecialchars($commande['adresse']) ?>"
-                    data-code-postal="<?= htmlspecialchars($commande['codePostal']) ?>"
-                    data-date-prestation="<?= $commande['datePrestation']->format('Y-m-d') ?>"
-                    data-date-livraison="<?= $commande['dateLivraison']->format('Y-m-d') ?>"
-                    data-heure-livraison="<?= htmlspecialchars($commande['heureLivraison']) ?>"
-                    data-convive="<?= $commande['convive'] ?>">
-                    Modifier
-                </button>
-            <?php endif; ?>
-        </article>
-    <?php endforeach; ?>
+    <div class="zone-commandes">
+        <?php foreach ($commandesComplettes as $commande): ?>
+            <article class="commande-recuperer">
+                <p class="informations-commande">Menu : <?= htmlspecialchars($commande['menuTitre']) ?></p>
+                <p class="informations-commande">Adresse de Livraison : <?= htmlspecialchars($commande['adresse']) ?></p>
+                <p class="informations-commande">Code Postal : <?= htmlspecialchars($commande['codePostal']) ?></p>
+                <p class="informations-commande">Date de Prestation : <?= htmlspecialchars($commande['datePrestation']->format('d/m/Y')) ?></p>
+                <p class="informations-commande">Heure de Prestation: <?= htmlspecialchars($commande['heureLivraison']) ?></p>
+                <p class="informations-commande">Date de Livraison : <?= htmlspecialchars($commande['dateLivraison']->format('d/m/Y')) ?></p>
+                <p class="informations-commande">Convive : <?= htmlspecialchars($commande['convive']) ?></p>
+                <p class="informations-commande">Prix : <?= htmlspecialchars($commande['facture']) ?> €</p>
+                <?php foreach ($commande['plats'] as $plat): ?>
+                    <p class="informations-commande">Plat : <?= htmlspecialchars($plat->getTitre()) ?></p>
+                <?php endforeach; ?>
+                <p class="informations-commande">Statut actuel : <?= htmlspecialchars($commande['statut']) ?></p>
+                <?php if ($commande['statut'] === 'En attente'): ?>
+                    <button type="button" class="bouton-modifier"
+                        data-id="<?= $commande['id'] ?>"
+                        data-adresse="<?= htmlspecialchars($commande['adresse']) ?>"
+                        data-code-postal="<?= htmlspecialchars($commande['codePostal']) ?>"
+                        data-date-prestation="<?= $commande['datePrestation']->format('Y-m-d') ?>"
+                        data-date-livraison="<?= $commande['dateLivraison']->format('Y-m-d') ?>"
+                        data-heure-livraison="<?= htmlspecialchars($commande['heureLivraison']) ?>"
+                        data-convive="<?= $commande['convive'] ?>">
+                        Modifier
+                    </button>
+                <?php endif; ?>
+            </article>
+        <?php endforeach; ?>
+    </div>
 </section>
 
 <div class="modale" id="modale-modifier-commande" aria-hidden="true">
@@ -60,7 +62,7 @@
             </div>
             <div class="zone-convive">
                 <label for="conviveInput" class="label-commande">Convive : </label>
-                <input type="number" class="input-commande-convive" id="conviveInput" form="formulairePrestation" name="convive" required>
+                <input type="number" class="input-commande" id="conviveInput" form="formulairePrestation" name="convive" required>
             </div>
             <button type="submit" class="valider-modification-commande" form="formulairePrestation" name="action" value="modifierCommande">Modifier</button>
         </form>
