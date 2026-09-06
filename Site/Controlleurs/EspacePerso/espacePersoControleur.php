@@ -20,7 +20,23 @@ switch ($onglet) {
     case 'avisClient':
         require __DIR__ . '/Client/ongletAvisClientControleur.php';
         break;
+
+    case 'infosEmploye':
+        require __DIR__ . '/Employe/ongletCompteEmployeControleur.php';
+        break;
         
+    case 'horairesEmploye':
+        require __DIR__ . '/Employe/ongletHorairesEmployeControleur.php';
+        break;
+
+    case 'avisEmploye':
+        require __DIR__ . '/Employe/ongletAvisEmployeControleur.php';
+        break;
+
+    case 'commandesEmploye':
+        require __DIR__ . '/Employe/ongletCommandeEmployeControleur.php';
+        break;
+
     default:
         $titreOnglet = "Introuvable";
         $contenuOnglet = "<p>Cet onglet n'existe pas.</p>";

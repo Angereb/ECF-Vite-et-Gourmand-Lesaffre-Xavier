@@ -52,6 +52,7 @@ foreach ($commandes as $commandeRecuperer) {
         "statut" => $statut
     ];
 }
+$commandesComplettes = array_reverse($commandesComplettes);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
     $formulaire = $_POST["action"] ?? null;

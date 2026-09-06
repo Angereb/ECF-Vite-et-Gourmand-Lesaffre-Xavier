@@ -3,16 +3,26 @@ require_once __DIR__ . "/../../Modeles/Horaires/HoraireModele.php";
 
 $horaireModele = new HoraireModele();
 $horaires = $horaireModele->rechercherTous();
+$horairesParJour = [];
+foreach ($horaires as $horaire) {
+    $horairesParJour[$horaire->getJour()] = $horaire;
+}
+$ordreJours = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
 ?>
 
 <footer class="pied-de-page">
-    <div class="horaires">
-        <h3 class="titre-horaires">Horaires</h3>
-        <?php foreach ($horaires as $horaire): ?>
-            <p><?= htmlspecialchars($horaire->getJour()) ?> : 
-               <?= htmlspecialchars($horaire->getHeuresOuverture() ?? 'Fermé') ?> - 
-               <?= htmlspecialchars($horaire->getHeuresFermeture() ?? 'Fermé') ?></p>
-        <?php endforeach; ?>
+    <div class="secteur-horaires">
+        <h4 class="titre-horaires">Horaires</h4>
+        <div class="horaires">
+            <?php foreach ($ordreJours as $jour): ?>
+                <?php $horaire = $horairesParJour[$jour] ?? null; ?>
+                <?php if ($horaire !== null): ?>
+                    <p><?= htmlspecialchars($jour) ?> : 
+                    <?= htmlspecialchars($horaire->getHeuresOuverture() ?? 'Fermé') ?> - 
+                    <?= htmlspecialchars($horaire->getHeuresFermeture() ?? 'Fermé') ?></p>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="liens-legaux">
         <button type="button" class="liens-legal-mobile" data-modale="modale-mentions-cgv">Mentions Légales & CGV</button>

@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . "/../ModeleBase.php";
 
-class CommandeMateriel extends ModeleBase {
+class CommandeMaterielModele extends ModeleBase {
     private function lienExisteDeja(int $commandesId, int $materielsId): bool {
         $requete = $this->pdo->prepare("SELECT COUNT(*) FROM commandesMateriels WHERE commandesId = ? AND materielsId = ?");
         $requete->execute([$commandesId, $materielsId]);

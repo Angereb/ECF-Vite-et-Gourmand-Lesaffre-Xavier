@@ -8,9 +8,13 @@
 }
 
 .horaires {
-    align-items: center;
-    justify-content: center;
     text-align: center;
+    font-size: 12px;
+}
+
+.horaires p {
+    display: inline;
+    margin-right: 0.5rem
 }
 
 .liens-legaux {
@@ -45,6 +49,7 @@
     justify-content:center;
     align-items:center;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000
 }
 
 .modale-contenu {
@@ -82,6 +87,12 @@
         grid-template-columns: 
             1fr
             2fr;
+    }
+
+    .horaires {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.2rem;
     }
 
     .liens-legaux {

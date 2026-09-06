@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     try {
         switch($formulaire){
             case 'modifierCompte':
-                $clientid = (int)$_SESSION["client"]["utilisateursId"];
-                $clientExistant = $clientModele->rechercherParId($clientid);
+                $clientId = (int)$_SESSION["client"]["utilisateursId"];
+                $clientExistant = $clientModele->rechercherParId($clientId);
                 if ($clientExistant === null) {
                     throw new Exception("Client Introuvable.");
                 }
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                     throw new Exception("Une erreur est subvenue.");
                 }
                 $clientModifier = new Client(
-                    $clientid,
+                    $clientId,
                     $nomModifier,
                     $prenomModifier,
                     $emailModifier,
@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             break;
 
             case 'modifierMotDePasse':
-                $clientid = (int)$_SESSION["client"]["utilisateursId"];
-                $clientExistant = $clientModele->rechercherParId($clientid);
+                $clientId = (int)$_SESSION["client"]["utilisateursId"];
+                $clientExistant = $clientModele->rechercherParId($clientId);
                 if ($clientExistant === null) {
                     throw new Exception("Client Introuvable.");
                 }
@@ -69,8 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 if ($nouveauMotDePasse !== $verificationNouveauMotDePasse){
                     throw new Exception("Les deux mot de passe ne correspondent pas.");
                 }
-                $clientModele->modifierMotDePasse($clientid, $nouveauMotDePasse);
+                $clientModele->modifierMotDePasse($clientId, $nouveauMotDePasse);
                 $_SESSION["messageSucces"] = "Votre mot de passe a bien été modifier.";
+            break;
         }
         header("Location: ?page=espacePerso&onglet=infosClient");
         exit;
