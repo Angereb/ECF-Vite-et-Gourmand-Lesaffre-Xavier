@@ -180,16 +180,32 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 
 ### Objectifs
 
-- Développement de l'espace personnel client en trois onglet : "Mes Informations", "Mes Commandes" et "Mes avis".
+- Développement de l'espace personnel client en trois onglets : "Mes Informations", "Mes Commandes" et "Mes avis".
 
 ### Réalisations
 
 - Développement d'un routage secondaire pour navigation entre les onglets des espaces personnels
 - Développement du Menu de navigation entre les onglets
 - Stylisation du Menu onglets
-- Développement de l'onglet "Mes Informations" permettant de modifier les informations d'un compte
+- Développement de l'onglet "Mes Informations" permettant de modifier les informations d'un compte client
 - Développement de l'onglet "Mes Commandes" permettant de modifier les commandes non accepté côté entreprise
 - Développement de l'onglet "Mes Avis" permettant de voir les commandes terminer et les avis et de poster des avis si aucun avis n'a été poster pour une commande terminer
 - Stylisation des trois onglets
+
+---
+
+## 05 au 08 Septembre 2026
+
+### Objectifs
+
+- Développement de l'espace personnel employé en cinq onglets : "Mes Informations", "Menus" , "Horaires",  "Avis", "Commandes".
+
+### Réalisations
+
+- Développement de l'onglet "Mes Informations" permettant de modifier les informations d'un compte employé
+- Développement de l'onglet "Horaires" permettant de modifier les horaires affiché sur le site
+- Développement de l'onglet "Avis" permettant aux employés de validé ou non les avis client
+- Développement de l'onglet "Commandes" permettant aux employés de visualiseer les commandes clients d'en changé le statut tout en y ajoutant des informations utile pour l'entreprise
+- Développement de l'onglet "Menus" permettant de créer et modifier les menus, les plats, les allergènes et les thèmes.
 
 ---

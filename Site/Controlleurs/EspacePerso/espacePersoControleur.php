@@ -37,6 +37,10 @@ switch ($onglet) {
         require __DIR__ . '/Employe/ongletCommandeEmployeControleur.php';
         break;
 
+    case 'menusEmploye':
+        require __DIR__ . '/Employe/ongletMenusEmployeControleur.php';
+        break;
+
     default:
         $titreOnglet = "Introuvable";
         $contenuOnglet = "<p>Cet onglet n'existe pas.</p>";

@@ -3,7 +3,7 @@ require_once __DIR__ . "/../ModeleBase.php";
 require_once __DIR__ . "/Plat.php";
 
 class PlatModele extends ModeleBase {
-    public function ajouter(Plat $plat) : void {
+    public function ajouter(Plat $plat) : int {
         if (!$this->idExisteDans("regimes", "regimesId", $plat->getRegimesId())) {
             throw new Exception("Le régime sélectionné n'existe pas.");
         }
@@ -19,6 +19,8 @@ class PlatModele extends ModeleBase {
             $plat->getActif(),
             $plat->getRegimesId()
         ]);
+        $nouveauPlatId = (int)$this->pdo->lastInsertId();
+        return $nouveauPlatId;
     }
 
     public function rechercherParId(int $id) : ?Plat {
@@ -55,6 +57,21 @@ class PlatModele extends ModeleBase {
         }
         $requete = $this->pdo->prepare($sql);
         $requete->execute($valeurs);
+        while ($donnees = $requete->fetch(PDO::FETCH_ASSOC)){
+            $platsId = (int)$donnees["platsId"];
+            $photo = $donnees["photo"] !== null ? (string)$donnees["photo"] : null;
+            $actif = (bool)$donnees["actif"];
+            $regimesId = (int)$donnees["regimesId"];
+            $plats[] = new Plat(
+            $platsId, $donnees["titre"], $donnees["categorie"], $photo, $actif, $regimesId);
+        }
+        return $plats;
+    }
+
+    public function rechercherTous() : array {
+        $plats = [];
+        $requete = $this->pdo->prepare("SELECT * FROM plats");
+        $requete->execute();
         while ($donnees = $requete->fetch(PDO::FETCH_ASSOC)){
             $platsId = (int)$donnees["platsId"];
             $photo = $donnees["photo"] !== null ? (string)$donnees["photo"] : null;

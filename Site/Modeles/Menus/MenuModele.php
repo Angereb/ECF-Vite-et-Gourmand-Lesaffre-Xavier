@@ -3,7 +3,7 @@ require_once __DIR__ . "/../ModeleBase.php";
 require_once __DIR__ . "/Menu.php";
 
 class MenuModele extends ModeleBase {
-    public function ajouter(Menu $menu) : void {
+    public function ajouter(Menu $menu) : int {
         if (!$this->idExisteDans("themes", "themesId", $menu->getThemesId())) {
             throw new Exception("Le thème sélectionné n'existe pas.");
         }
@@ -26,6 +26,8 @@ class MenuModele extends ModeleBase {
             $menu->getThemesId(),
             $menu->getRegimesId(),
         ]);
+        $nouveauMenuId = (int)$this->pdo->lastInsertId();
+        return $nouveauMenuId;
     }
 
     public function rechercherParId(int $id): ?Menu {
@@ -76,6 +78,23 @@ class MenuModele extends ModeleBase {
         }
         $requete = $this->pdo->prepare($sql);
         $requete->execute($valeurs);
+        while ($donnees = $requete->fetch(PDO::FETCH_ASSOC)){
+            $menusId = (int)$donnees["menusId"];
+            $minimumConvive = (int)$donnees["minimumConvive"];
+            $stock = (int)$donnees["stock"];
+            $actif = (bool)$donnees["actif"];
+            $menuThemesId = (int)$donnees["themesId"];
+            $menuRegimesId = (int)$donnees["regimesId"];
+            $menus[] = new Menu(
+                $menusId, $donnees["titre"], $donnees["descriptions"], $donnees["conditions"], $minimumConvive, $stock, $donnees["prix"], $actif, $menuThemesId, $menuRegimesId);
+            }
+        return $menus;
+    }
+
+    public function rechercherTous(): array {
+        $menus = [];
+        $requete = $this->pdo->prepare("SELECT * FROM menus");
+        $requete->execute();
         while ($donnees = $requete->fetch(PDO::FETCH_ASSOC)){
             $menusId = (int)$donnees["menusId"];
             $minimumConvive = (int)$donnees["minimumConvive"];

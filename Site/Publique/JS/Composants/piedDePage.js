@@ -23,6 +23,7 @@ document.querySelectorAll('.modale').forEach(modale => {
     });
 
     modale.addEventListener('mouseup', (evenement) => {
+        console.log('mouseup sur', evenement.target, '- clicCommenceSurOverlay:', clicCommenceSurOverlay);
         if (clicCommenceSurOverlay && evenement.target === modale) {
             if (document.activeElement) document.activeElement.blur();
             modale.classList.remove('ouverte');

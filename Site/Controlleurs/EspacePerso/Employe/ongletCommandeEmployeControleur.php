@@ -110,7 +110,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     }
 }
 
-
 ob_start();
 require __DIR__ . '/../../../Vus/EspacePerso/Employe/ongletCommandeEmploye.php';
 $contenuOnglet = ob_get_clean();

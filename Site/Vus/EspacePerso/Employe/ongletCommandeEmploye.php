@@ -4,7 +4,7 @@
 /**@var array $materiels */
 ?>
 <section class="zone-onglet-commandes">
-    <h3 class="titre-zone-commandes">Vos Commandes</h3>
+    <h3 class="titre-zone-commandes">Gestion des Commandes</h3>
     <div class="zone-commandes">
         <?php foreach ($commandesComplettes as $commande): ?>
             <article class="commande-recuperer">

@@ -1,0 +1,216 @@
+.zone-onglet-menus {
+    height: auto;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    padding: 2%;
+    margin: 2%;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+}
+
+.zone-boutons-creation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.3rem;
+}
+
+.bouton-creation, 
+.bouton-modification,
+.valider-formulaire-creer-theme,
+.valider-formulaire-creer-allergene,
+.valider-formulaire-creer-plat,
+.valider-formulaire-creer-menu,
+.valider-formulaire-modifier-theme,
+.valider-formulaire-modifier-allergene,
+.valider-formulaire-modifier-plat,
+.valider-formulaire-modifier-stock-menu,
+.valider-formulaire-modifier-galerie-menu,
+.valider-formulaire-modifier-menu {
+    width: 100%;
+    max-width: 150px;
+    justify-self: center;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #6B2338;
+    color: #F3E7D8;
+    font-size: 16px;
+}
+
+.bouton-modification, .valider-formulaire-modifier-galerie-menu {
+    margin-top: 0.3rem;
+}
+
+.zone-de-select {
+    margin-top: 0.5rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.zone-theme, .zone-allergene, .zone-plat, .zone-menu  {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.zone-select {
+    display: grid;
+}
+
+.selection {
+    min-width: 168px;
+}
+
+.input-gestion, .selecteur-gestion {
+    border: 1.5px solid #6B2338;
+    border-radius: 12px;
+    background-color: transparent;
+    padding: 0.2rem;
+    margin-left: 0.2rem;
+    font: inherit;
+    color: inherit;
+    text-align: right;
+}
+
+textarea.input-gestion {
+    min-height: 50px;
+    resize: vertical;
+    text-align: left;
+}
+
+.theme-recuperer, .allergene-recuperer, .plat-recuperer, .menu-recuperer {
+    margin: 2% 5%;
+    border: 3px solid #6B2338;
+    border-radius: 20px;
+    height: auto;
+    padding: 2%;
+    display: none;
+    grid-template-rows: auto;
+    gap: 0.2rem;
+}
+
+.affichage-informations, .affichage-informations-principal {
+    min-width: 170px;
+}
+
+.affichage-informations-principal {
+    font-weight: bold;
+}
+
+.zone-statut {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.article-menu-galerie {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+#modale-creer-theme .modale-contenu,
+#modale-creer-allergene .modale-contenu,
+#modale-creer-plat .modale-contenu,
+#modale-creer-menu .modale-contenu,
+#modale-modifier-theme .modale-contenu,
+#modale-modifier-allergene .modale-contenu,
+#modale-modifier-plat .modale-contenu,
+#modale-modifier-menu-stock .modale-contenu,
+#modale-modifier-menu-galerie .modale-contenu,
+#modale-modifier-menu .modale-contenu {
+    width: 80vw;
+}
+
+.formulaire-gestion, .zone-interne-modale {
+    width: 75vw;
+    display: grid;
+    grid-gap: 0.3rem;
+    overflow-y: auto;
+    margin-top: 30px;
+    padding: 0 0.4rem;
+    
+}
+
+.duo-label-input, .duo-label-select, .duo-label-area {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.duo-label-area {
+    align-items: center;
+}
+
+textarea.duo-label-area {
+    min-height: 50px;
+    resize: vertical;
+    text-align: left;
+}
+
+.duo-label-area-grand {
+    display: grid;
+}
+
+.duo-label-checkbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.3rem;
+}
+
+.checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkbox + label {
+    display: inline-block;
+    padding: 0 0.5rem;
+    margin-right:  5%;
+    max-width: 100px;
+    background-color: #F3E7D8;
+    color: #6B2338;
+    border-radius: 10px;
+    border: 1px solid #6B2338;
+    text-align: center;
+}
+
+.checkbox:checked + label {
+    background-color: #6B2338;
+    color: #F3E7D8;
+}
+
+.checkbox:focus-visible + label {
+    outline: 2px solid #2E2622;
+    outline-offset: 2px;
+}
+
+@media (min-width: 768px)  {
+    .zone-boutons-creation {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: none;
+        gap: 0.3rem;
+    }
+
+    .zone-de-select {
+        grid-template-columns: repeat(4, 1fr);
+        align-items: start;
+    }
+
+    #modale-creer-theme .modale-contenu,
+    #modale-creer-allergene .modale-contenu,
+    #modale-creer-plat .modale-contenu,
+    #modale-creer-menu .modale-contenu,
+    #modale-modifier-theme .modale-contenu,
+    #modale-modifier-allergene .modale-contenu,
+    #modale-modifier-plat .modale-contenu,
+    #modale-modifier-menu-stock .modale-contenu,
+    #modale-modifier-menu-galerie .modale-contenu,
+    #modale-modifier-menu .modale-contenu {
+        width: 50vw;
+    }
+
+    .formulaire-gestion, .zone-interne-modale {
+        width: 45vw;
+    }
+}
