@@ -15,7 +15,7 @@
             <li class="onglet"><a class="onglet-lien" href="?page=espacePerso&onglet=avisEmploye" <?= ($onglet === 'avisEmploye') ? 'aria-current="page"' : '' ?>>Avis</a></li>
             <li class="onglet"><a class="onglet-lien" href="?page=espacePerso&onglet=commandesEmploye" <?= ($onglet === 'commandesEmploye') ? 'aria-current="page"' : '' ?>>Commandes</a></li>
             <?php if ($_SESSION["employe"]["administrateur"]): ?>
-                <li class="onglet"><a class="onglet-lien" href="?page=espacePerso&onglet=employes" <?= ($onglet === 'employes') ? 'aria-current="page"' : '' ?>>Employés</a></li>
+                <li class="onglet"><a class="onglet-lien" href="?page=espacePerso&onglet=employeAdministrateur" <?= ($onglet === 'employes') ? 'aria-current="page"' : '' ?>>Employés</a></li>
                 <li class="onglet"><a class="onglet-lien" href="?page=espacePerso&onglet=graphiques" <?= ($onglet === 'graphiques') ? 'aria-current="page"' : '' ?>>Graphiques</a></li>
             <?php endif; ?>
         <?php endif; ?>
