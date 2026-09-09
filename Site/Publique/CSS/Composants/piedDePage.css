@@ -85,8 +85,8 @@
 @media (min-width: 768px) {
     .pied-de-page {
         grid-template-columns: 
-            1fr
-            2fr;
+            3fr
+            4fr;
     }
 
     .horaires {

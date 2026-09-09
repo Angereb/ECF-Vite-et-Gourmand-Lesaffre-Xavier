@@ -16,7 +16,6 @@ class AvisModele extends ModeleBase{
         if ($libelleStatut !== "Terminée"){
             throw new Exception("Seul une commande terminée peut avoir un avis.");
         }
-        // TODO : vérifier que le libellé de statut est exact par rapport à la BDD
 
         if (!$this->idExisteDans("statutsAvis", "statutsAvisId", $avis->getStatutsAvisId())) {
             throw new Exception("Le statut d'avis sélectionné n'existe pas.");

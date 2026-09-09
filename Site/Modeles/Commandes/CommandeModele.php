@@ -5,6 +5,7 @@ require_once __DIR__ . "/../Menus/Menu.php";
 require_once __DIR__ . "/../Menus/MenuModele.php";
 require_once __DIR__ . "/../HistoriquesStatutsCommandes/HistoriqueStatutCommande.php";
 require_once __DIR__ . "/../HistoriquesStatutsCommandes/HistoriqueStatutCommandeModele.php";
+require_once __DIR__ . "/../StatistiqueCommande/StatistiqueCommandeService.php";
 
 class CommandeModele extends ModeleBase {
     private const CODES_POSTAUX_BORDEAUX = ["33000", "33100", "33200", "33300", "33800"];
@@ -209,6 +210,12 @@ class CommandeModele extends ModeleBase {
             $this->pdo->rollBack();
             throw new Exception("Erreur lors de la modification du statut : " . $e->getMessage());
         }
+        if ($nouveauLibelle === "Terminée"){
+                $menusId = (int)($menu->getMenusId());
+                $dateCommande = $commande->getDatePrestation()->format('Y-m-d');
+                $prixFacture = $commande->getFacture();
+                StatistiqueCommandeService::enregistrer($menusId, $dateCommande, $prixFacture);
+            }
     }
 
 }

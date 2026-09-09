@@ -8,7 +8,9 @@ return [
     "smtpPort" => 000,
     "smtpUtilisateur" => "adresse.mail@mail.com",
     "smtpMotDePasse" => "XXXX XXXX XXXX XXXX",
-    "environnement" => ""
+    "environnement" => "",
+    "mongoUri" => "adresse_base",
+    "mongoBase" => "nomDeLaBase",
 ];
 
 ?>

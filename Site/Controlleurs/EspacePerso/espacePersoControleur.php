@@ -45,6 +45,10 @@ switch ($onglet) {
         require __DIR__ . '/Administrateur/ongletEmployeAdministrateurControleur.php';
         break;    
 
+    case 'statistiqueAdministrateur':
+        require __DIR__ . '/Administrateur/ongletStatistiqueAdministrateurControleur.php';
+        break; 
+
     default:
         $titreOnglet = "Introuvable";
         $contenuOnglet = "<p>Cet onglet n'existe pas.</p>";
