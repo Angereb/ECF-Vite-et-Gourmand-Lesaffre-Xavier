@@ -51,6 +51,10 @@ switch ($page){
     case 'espacePerso':
         require_once __DIR__ . '/Site/Controlleurs/EspacePerso/espacePersoControleur.php';
         break;
+
+    case 'filtrerStatistiquesChiffreAffaires':
+    require_once __DIR__ . '/Site/Controlleurs/EspacePerso/Administrateur/filtrerStatistiquesChiffreAffaires.php';
+    break;
     
     default:
         echo "Page introuvable";

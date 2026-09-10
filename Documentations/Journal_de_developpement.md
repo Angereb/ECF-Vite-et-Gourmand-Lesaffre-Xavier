@@ -209,3 +209,28 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Développement de l'onglet "Menus" permettant de créer et modifier les menus, les plats, les allergènes et les thèmes.
 
 ---
+
+## 08 au 10 Septembre 2026
+
+### Objectifs
+
+- Développement de l'espace personnel administrateur avec 2 onglets : "Employés" et "Graphiques" qui s'ajoutent aux 5 onglets de l'espace employé
+
+### Réalisations
+
+- Développement de l'onglet "Employés" permettant de créer un compte employé et de modifier le statut d'activation d'un compte employé
+- Intégration de MongoDB
+- Développement du système de connexion à la base de donnée MongoDB
+- Développement du système de service statistique permettant le transfert et la lecture de donnée MongoDB
+- Développement d'un contrôleur de filtrage pour le graphique de chiffre d'affaires
+- Développement de l'onglet "Graphiques" comprenant un graphique reflétant les données de commandes par menus et un graphique filtrer reflétant les données de chiffres d'affaires pouvant être filtrer par tranche de date et/ou par menus
+
+### Problèmes
+
+- Stylisation des graphiques difficiles
+
+### Solutions
+
+- Récupération d'une partie de style effectuer sur un exercices de formations et modifier pour correspondre aux style de donnée
+
+---

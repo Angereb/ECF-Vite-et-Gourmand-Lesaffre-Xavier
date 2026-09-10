@@ -56,7 +56,6 @@ function classeRegime(regime) {
     };
     return correspondance[regime] ?? "regime-classique";
 }
-// Penser a vérifier que les libellés de régime corresponde avec la bdd
 
 function construireHtmlMiniature(menu) {
     return `
