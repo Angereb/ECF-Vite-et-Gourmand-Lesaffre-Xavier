@@ -67,7 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 if ($commandeExistante->getUtilisateursId() !== (int)$_SESSION["client"]["utilisateursId"]) {
                     throw new Exception("Vous n'avez pas le droit de modifier cette commande.");
                 }
-                $statutCommandeModele = new StatutCommandeModele();
                 $statutActuel = $statutCommandeModele->rechercherParId($commandeExistante->getStatutsCommandeId());
                 if ($statutActuel->getLibelle() !== "En attente") {
                     throw new Exception("Cette commande ne peut plus être modifiée.");

@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../Modeles/Avis/Avis.php";
 require_once __DIR__ . "/../../Modeles/Commandes/CommandeModele.php";
 require_once __DIR__ . "/../../Modeles/Menus/MenuModele.php";
 require_once __DIR__ . "/../../Modeles/Utilisateurs/ClientModele.php";
+require_once __DIR__ . "/../../Modeles/StatutsAvis/StatutAvisModele.php";
 
 $titre = "Accueil";
 
@@ -25,7 +26,12 @@ $avisModele = new AvisModele();
 $commandeModele = new CommandeModele();
 $menuModele = new MenuModele();
 $clientModele = new ClientModele();
-$avisBruts = $avisModele->rechercherTousParStatut(1);
+$statutAvisModele = new StatutAvisModele();
+$statutAvisValide = $statutAvisModele->rechercherParLibelle("Valider");
+if ($statutAvisValide === null) {
+    throw new Exception("Configuration du système incorrecte.");
+}
+$avisBruts = $avisModele->rechercherTousParStatut($statutAvisValide->getStatutsAvisId());
 $avisComplets = [];
 foreach ($avisBruts as $avi) {
     $commande = $commandeModele->rechercherParId($avi->getCommandesId());

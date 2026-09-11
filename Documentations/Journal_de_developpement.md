@@ -234,3 +234,21 @@ Ce journal de développement a été fait pour suivre le projet Vite et Gourmand
 - Récupération d'une partie de style effectuer sur un exercices de formations et modifier pour correspondre aux style de donnée
 
 ---
+
+## 11 Septembre 2026
+
+### Objectifs
+
+- Nettoyage des données
+- Préparation au lancement
+
+### Réalisations
+
+- Drop de la base de donnée SQL
+- Suppression de données NoSQL
+- Utilisation du schéma SQL pour re-création de la base de donnée SQL
+- Création de fichiers PHP pour utilisation des Modèles d'ajout de donnée pour les données nécessaire au fonctionnement du site
+- Divers corrections
+- Rédaction du fichier README.md
+
+---

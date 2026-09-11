@@ -3,9 +3,7 @@ require_once __DIR__ . "/../../Modeles/Menus/MenuModele.php";
 require_once __DIR__ . "/../../Modeles/Regimes/Regime.php";
 require_once __DIR__ . "/../../Modeles/Regimes/RegimeModele.php";
 
-// indication au navigateur que le résultat sera du json
 header("Content-Type: application/json"); 
-// initialisation des variables de filtrage
 $prixMax = isset($_GET["prixMax"]) ? (float)$_GET["prixMax"] : null;
 $prixMin = isset($_GET["prixMin"]) ? (float)$_GET["prixMin"] : null;
 $themesId = isset($_GET["themesId"]) ? (int)$_GET["themesId"] : null;
