@@ -1,6 +1,7 @@
 <?php
 return [
     "serveur" => "localhost",
+    "port" => "0000",
     "base" => "nom_de_la_base",
     "utilisateur" => "utilisateur_bdd",
     "motDePasse" => "mot_de_passe_bdd",

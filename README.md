@@ -16,7 +16,7 @@ Application web permettant :
 - **NoSQL** : MongoDB (statistiques de vente)
 - **Front-end** : HTML / CSS / JavaScript (vanilla, AJAX)
 - **Dépendances** : PHPMailer (envoi de mails), mongodb/mongodb (via Composer)
-- **Outils** : XAMPP (environnement local), Figma (maquettage), draw.io (diagrammes), QuickDBD (diagramme relationnel)
+- **Outils** : XAMPP (environnement local), Figma (maquettage), draw.io (diagrammes), QuickDBD (diagramme relationnel), VSCode (codage)
 
 ## Installation locale
 
@@ -24,6 +24,13 @@ Application web permettant :
 - XAMPP (PHP 8.2+, MySQL, Apache)
 - Composer
 - MongoDB Community Server (pour les statistiques admin)
+
+### Choix d'environnement
+
+- **XAMPP** a été choisi comme environnement de développement local pour sa simplicité de mise en place (PHP, Apache, MySQL préconfigurés), cohérent avec les outils déjà pratiqués en formation.
+- **Composer** gère les dépendances PHP du projet (PHPMailer, mongodb/mongodb) de façon standardisée, évitant une installation manuelle sujette à erreurs.
+- **MongoDB Community Server** a été installé localement en complément de MySQL, pour répondre à l'exigence du sujet d'intégrer une base de données NoSQL, dédiée ici aux statistiques de vente.
+- Le déploiement se fait via **Heroku**, qui détecte automatiquement l'environnement PHP du projet sans nécessiter de conteneurisation (Docker), grâce à son système de buildpacks.
 
 ### Étapes
 

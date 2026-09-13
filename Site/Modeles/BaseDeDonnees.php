@@ -4,6 +4,7 @@ class BaseDeDonnees {
     private static string $base;
     private static string $utilisateurBase;
     private static string $motDePasseBase;
+    private static int $port;
 
     private static function chargerConfiguration() : void {
         $configuration = require __DIR__ . "/../Configuration/config.php";
@@ -12,6 +13,7 @@ class BaseDeDonnees {
         self::$base = $configuration["base"];
         self::$utilisateurBase = $configuration["utilisateur"];
         self::$motDePasseBase = $configuration["motDePasse"];
+        self::$port = $configuration["port"];
     }
 
     private static ?PDO $pdo = null;
@@ -21,6 +23,7 @@ class BaseDeDonnees {
             self::chargerConfiguration();
 
             $dsn = "mysql:host=" . self::$serveur .
+            ";port=" . (self::$port ?? 3306) .
             ";dbname=" . self::$base .
             ";charset=utf8mb4";
 
