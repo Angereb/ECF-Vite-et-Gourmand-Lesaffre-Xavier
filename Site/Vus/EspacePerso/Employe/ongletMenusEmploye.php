@@ -341,8 +341,8 @@
 
 <div class="modale" id="modale-modifier-menu-galerie" aria-hidden="true">
     <div class="modale-contenu">
+        <button type="button" class="fermer-modale" aria-label="Fermer">×</button>
         <div class="zone-interne-modale">
-            <button type="button" class="fermer-modale" aria-label="Fermer">×</button>
             <h4>Ajouter une image</h4>
             <form method="post" enctype="multipart/form-data">
                 <input type="hidden" name="menuId" id="modif-menu-id-galerie">

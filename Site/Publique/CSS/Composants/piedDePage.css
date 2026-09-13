@@ -64,7 +64,7 @@
     grid-template-rows: 
         repeat(2, auto)
         1fr;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
