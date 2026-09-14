@@ -236,6 +236,21 @@ main {
         margin-top: 15%;
     }
 
+    .zone-menus {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .conteneur-menus:has(.zone-menu-detaillee.active) .zone-menus {
+        display: block;
+        grid-template-rows: none;
+        grid-template-columns: none;
+    }
+
+    .carte-menu {
+        max-height: 180px;
+    }
+
     .conteneur-menus {
         display: grid;
         grid-template-columns: 1fr;
